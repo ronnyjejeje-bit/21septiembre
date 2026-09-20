@@ -2,11 +2,11 @@ const galaxy = document.getElementById('galaxy');
 const universe = document.getElementById('universe');
 
 const messages = [
-    { icon: '💛', title: 'Mi Centro', text: 'Eres el núcleo de este universo. Todo lo hermoso gira a tu alrededor.' },
-    { icon: '🌻', title: 'Mi Sol', text: 'Tus sonrisas son como estas flores: brillantes y únicas.' },
-    { icon: '✨', title: 'Magia Pura', text: 'Cada momento a tu lado es como flotar entre las estrellas.' },
-    { icon: '💌', title: 'El Destino', text: 'Qué suerte tan increíble fue habernos encontrado en este universo.' },
-    { icon: '🌹', title: 'Amor Infinito', text: 'Mi amor por ti seguirá brillando intacto siempre.' }
+    { icon: '💛', title: 'Mi Centro', text: 'Eres el núcleo de este universo. Todo lo hermoso gira a tu alrededor.💜' },
+    { icon: '🌻', title: 'Mi Sol', text: 'Tus sonrisas son como estas flores: brillantes y únicas.💜' },
+    { icon: '✨', title: 'Magia Pura', text: 'Cada momento a tu lado es como flotar entre las estrellas.💜' },
+    { icon: '💌', title: 'El Destino', text: 'Qué suerte tan increíble fue habernos encontrado en este universo.💜' },
+    { icon: '🌹', title: 'Amor Infinito', text: 'Mi amor por ti seguirá brillando intacto siempre.💜' }
 ];
 
 const billboards = []; // Ahora solo guardará las flores y textos (menos de 60 elementos)
@@ -59,13 +59,13 @@ for (let i = 0; i < 200; i++) {
 }
 
 // 2. Flores balanceadas (35 es suficiente para verse bien sin causar lag)
-const flowers = ['🌻', '🌼', '💛'];
+const flowers = ['🌻', '🌼', '💛'💜'🌷'];
 for (let i = 0; i < 35; i++) {
     create3DElement('flower', flowers[Math.floor(Math.random() * flowers.length)], 700);
 }
 
 // 3. Textos balanceados
-const phrases = ["Te amo", "Eres mi sol", "Preciosa", "Única", "Siempre juntos", "Me encantas"];
+const phrases = ["Te amo", "Eres mi sol", "Preciosa", "Única", "Mi reyna", "Me encantas", "Mi mochi", "Mi mujer", "Mi cielo"];
 for (let i = 0; i < 15; i++) {
     create3DElement('text', phrases[Math.floor(Math.random() * phrases.length)], 600);
 }
