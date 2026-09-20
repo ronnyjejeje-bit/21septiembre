@@ -59,7 +59,7 @@ for (let i = 0; i < 200; i++) {
 }
 
 // 2. Flores balanceadas (35 es suficiente para verse bien sin causar lag)
-const flowers = ['🌻', '🌼', '💛'💜'🌷'];
+const flowers = ['🌻', '🌼', '💛','💜','🌷'];
 for (let i = 0; i < 35; i++) {
     create3DElement('flower', flowers[Math.floor(Math.random() * flowers.length)], 700);
 }
