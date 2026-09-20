@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --glow-yellow: #ffdf00;
+    --glow-orange: #ff9800;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1a0b1c 0%, #050510 100%);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    cursor: grab; /* Cursor de agarre para indicar que se puede mover */
+}
+
+body:active {
+    cursor: grabbing;
+}
+
+#hint {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeOut 5s forwards;
+    animation-delay: 4s;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+/* --- ENTORNO 3D --- */
+#universe {
+    width: 100vw;
+    height: 100vh;
+    perspective: 1200px; /* Profundidad masiva */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#galaxy {
+    position: relative;
+    transform-style: preserve-3d;
+    /* La rotación inicial se manejará desde JS */
+}
+
+/* Contenedor espacial de cada objeto */
+.item {
+    position: absolute;
+    top: 0; left: 0;
+    transform-style: preserve-3d;
+}
+
+/* El objeto real que mirará a la cámara */
+.billboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
+}
+
+/* --- ELEMENTOS DE LA GALAXIA --- */
+.star {
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px white, 0 0 30px var(--glow-yellow);
+}
+
+.flower {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 15px rgba(255, 223, 0, 0.6));
+}
+
+.text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #fffde7;
+    text-shadow: 0 0 10px var(--glow-orange), 0 0 20px var(--glow-yellow);
+    white-space: nowrap;
+}
+
+/* Los 5 botones interactivos */
+.interactive {
+    font-size: 4rem;
+    cursor: pointer;
+    pointer-events: auto;
+    filter: drop-shadow(0 0 30px var(--glow-yellow));
+    animation: floatPulse 2s infinite alternate ease-in-out;
+    transition: transform 0.3s;
+}
+
+.interactive:hover {
+    filter: drop-shadow(0 0 50px white);
+}
+
+@keyframes floatPulse {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.1) translateY(-15px); }
+}
+
+/* --- TARJETA GLASSMORPHISM (Súper moderna) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 400px;
+    width: 85%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 223, 0, 0.2);
+    transform: translateY(50px) scale(0.8);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .glass-card {
+    transform: translateY(0) scale(1);
+}
+
+.card-icon {
+    font-size: 5rem;
+    margin-top: -80px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+    animation: floatPulse 2s infinite alternate;
+}
+
+.glass-card h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--glow-yellow);
+    margin: 10px 0;
+    text-shadow: 0 0 15px rgba(255, 223, 0, 0.5);
+}
+
+.glass-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+.glass-card button {
+    background: linear-gradient(45deg, #ff9800, #ffdf00);
+    color: #111;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
+    transition: all 0.3s;
+}
+
+.glass-card button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 152, 0, 0.6);
+}
