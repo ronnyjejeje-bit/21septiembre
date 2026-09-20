@@ -65,7 +65,7 @@ for (let i = 0; i < 35; i++) {
 }
 
 // 3. Textos balanceados
-const phrases = ["Te amo", "Eres mi sol", "Preciosa", "Única", "Mi reyna", "Me encantas", "Mi mochi", "Mi mujer", "Mi cielo"];
+const phrases = ["Te amo", "Eres mi sol", "Preciosa", "Única", "Mi reyna", "Me encantas", "Mi mochi", "Mi mujer", "Mi cielo", "Mi amor"];
 for (let i = 0; i < 15; i++) {
     create3DElement('text', phrases[Math.floor(Math.random() * phrases.length)], 600);
 }
