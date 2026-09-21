@@ -19,7 +19,7 @@ body:active { cursor: grabbing; }
 
 #hint {
     position: absolute; top: 20px; width: 100%; text-align: center;
-    color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; letter-spacing: 2px;
+    color: rgba(149, 4, 216, 0.911); font-size: 0.9rem; letter-spacing: 2px;
     z-index: 10; pointer-events: none;
     animation: fadeOut 5s forwards; animation-delay: 4s;
 }
